@@ -1,0 +1,18 @@
+#! /bin/bash
+source credentials
+
+docker run \
+  -d \
+  --shm-size=10g \
+  --memory=120g \
+  --cpus=16 \
+  --user ${DOCKER_USER_ID}:${DOCKER_GROUP_ID} \
+  --name ${CONTAINER_NAME} \
+  --rm -it --init \
+  --gpus '"device=5"' \
+  -v /home/e.serov/NeuralCDE:/app \
+  -p 8890:8890 \
+  -p 6006:6006 \
+  ${DOCKER_NAME} bash
+
+docker exec -it ${CONTAINER_NAME} /bin/bash
