@@ -27,4 +27,5 @@ dependencies = [
     "torchcde>=0.2.5",
     "torchdiffeq>=0.2.5",
     "tqdm>=4.67.1",
+    "transformers>=4.57.1",
 ]

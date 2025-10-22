@@ -28,4 +28,4 @@ if __name__ == '__main__':
         description="A simple web interface for a GPT-2 model. Enter your message and get a response.",
         theme="soft",
         examples=["Hello, how are you?", "What is the capital of France?", "Write a short poem about the sea."]
-    ).launch()
+    ).launch(server_name="0.0.0.0", server_port=7860)

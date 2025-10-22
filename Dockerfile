@@ -57,7 +57,7 @@ RUN curl -sLo ~/miniconda.sh https://repo.anaconda.com/miniconda/Miniconda3-py31
  && ~/miniconda.sh -b -p ~/miniconda \
  && rm ~/miniconda.sh \
  && pip install uv \
- && uv pip sync --system /app/pyproject.toml \
+ && uv pip\
  && rm /app/pyproject.toml 
 
-CMD python3 app/app.py
+CMD ./.venv/bin/python app/app.py
