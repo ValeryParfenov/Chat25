@@ -46,20 +46,18 @@ ENV HOME=/home/$DOCKER_NAME
 RUN mkdir $HOME/.cache $HOME/.config \
  && chmod -R 777 $HOME
 
-COPY requirements.txt /app/requirements.txt
+COPY pyproject.toml /app/pyproject.toml
 
 # Set up the Conda environment
 ENV CONDA_AUTO_UPDATE_CONDA=false \
     PATH=$HOME/miniconda/bin:$PATH
 
-RUN curl -sLo ~/miniconda.sh https://repo.anaconda.com/miniconda/Miniconda3-py39_23.1.0-1-Linux-x86_64.sh \
+RUN curl -sLo ~/miniconda.sh https://repo.anaconda.com/miniconda/Miniconda3-py312_24.5.0-0-Linux-x86_64.sh \
  && chmod +x ~/miniconda.sh \
  && ~/miniconda.sh -b -p ~/miniconda \
  && rm ~/miniconda.sh \
  && pip install uv \
- && uv pip sync \
- && rm /app/requirements.txt \
- && conda clean -ya
-
+ && uv pip sync --system /app/pyproject.toml \
+ && rm /app/pyproject.toml 
 
 CMD python3 app/app.py
