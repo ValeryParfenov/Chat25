@@ -10,9 +10,7 @@ docker run \
   --name ${CONTAINER_NAME} \
   --rm -it --init \
   --gpus '"device=5"' \
-  -v /home/e.serov/NeuralCDE:/app \
-  -p 8890:8890 \
-  -p 6006:6006 \
-  ${DOCKER_NAME} bash
+  -v /home/e.serov/Chat25:/app \
+  -p 7860:7860 \
+  ${DOCKER_NAME} 
 
-docker exec -it ${CONTAINER_NAME} /bin/bash
