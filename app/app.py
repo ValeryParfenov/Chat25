@@ -1,7 +1,7 @@
-import gradio as gr
 import time
 
-from model import generate_response, _load_model
+import gradio as gr
+from model import _load_model, generate_response
 
 
 def chat_gradio(message, history):
