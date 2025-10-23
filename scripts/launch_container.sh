@@ -1,5 +1,4 @@
-#! /bin/bash
-source credentials
+source $( dirname ${BASH_SOURCE[0]} )/credentials.sh
 
 docker run \
   -d \
@@ -9,8 +8,5 @@ docker run \
   --user ${DOCKER_USER_ID}:${DOCKER_GROUP_ID} \
   --name ${CONTAINER_NAME} \
   --rm -it --init \
-  --gpus '"device=5"' \
-  -v /home/e.serov/Chat25:/app \
   -p 7860:7860 \
   ${DOCKER_NAME} 
-
