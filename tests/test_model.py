@@ -1,5 +1,7 @@
 import unittest
+
 from app.model import generate_response
+
 
 class TestModel(unittest.TestCase):
     def test_returns_string(self):

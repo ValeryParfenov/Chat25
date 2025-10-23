@@ -1,5 +1,4 @@
 from transformers import AutoModelForCausalLM, AutoTokenizer
-import torch
 
 MODEL_NAME = "gpt2"
 
