@@ -2,7 +2,6 @@ import unittest
 from time import time
 
 from app.model import generate_response
-from time import time
 
 
 class TestModel(unittest.TestCase):
